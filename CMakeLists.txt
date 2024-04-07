@@ -1,15 +1,14 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(ComboBoxTest VERSION 0.1 LANGUAGES CXX)
+cmake_policy(SET CMP0071 NEW)
+cmake_policy(SET CMP0087 NEW)
 
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
+project(ComboBoxTest VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick QuickControls2 Widgets)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
@@ -30,7 +29,9 @@ target_link_libraries(ComboBoxTestBin
     PRIVATE
     Qt6::Core
     Qt6::Gui
+    Qt6::Qml
     Qt6::Quick
+    Qt6::QuickControls2
     Qt6::Widgets
 )
 
@@ -56,3 +57,10 @@ install(TARGETS ComboBoxTestBin
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+qt_generate_deploy_qml_app_script(
+    TARGET ComboBoxTestBin
+    OUTPUT_SCRIPT deploy_script
+    NO_UNSUPPORTED_PLATFORM_ERROR
+)
+install(SCRIPT ${deploy_script})
