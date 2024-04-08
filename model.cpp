@@ -1,5 +1,5 @@
 #include "model.h"
 
 Model::Model() : QStringListModel() {
-    setStringList({ "A", "B", "C" });
+    setStringList({ "Item A", "Item B", "Item C" });
 }

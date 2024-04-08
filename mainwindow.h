@@ -20,15 +20,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void requestStatistics();
-
 private slots:
     void quickViewStatusChanged(QQuickView::Status);
     void sceneGraphError(QQuickWindow::SceneGraphError error, const QString &message);
-
-private:
-    void handleStatisticsRetrieved();
-    void handleStatisticsParsed();
 
 private:
     Ui::MainWindow *ui;
