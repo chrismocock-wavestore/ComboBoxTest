@@ -21,11 +21,11 @@ set(PROJECT_SOURCES
 	MainWindow.qml
 )
 
-qt_add_executable(ComboBoxTestBin WIN32 MACOSX_BUNDLE
+qt_add_executable(appComboBoxTest WIN32 MACOSX_BUNDLE
     ${PROJECT_SOURCES}
 )
 
-target_link_libraries(ComboBoxTestBin
+target_link_libraries(appComboBoxTest
     PRIVATE
     Qt6::Core
     Qt6::Gui
@@ -35,15 +35,15 @@ target_link_libraries(ComboBoxTestBin
     Qt6::Widgets
 )
 
-qt_add_qml_module(ComboBoxTestBin
-    URI ComboBoxTestQml
+qt_add_qml_module(appComboBoxTest
+    URI ComboBoxTest
     QML_FILES
       "MainWindow.qml"
-    RESOURCE_PREFIX /ComboBoxTestQml
+    RESOURCE_PREFIX /ComboBoxTest
     NO_RESOURCE_TARGET_PATH    
 )
 
-set_target_properties(ComboBoxTestBin PROPERTIES
+set_target_properties(appComboBoxTest PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -52,14 +52,14 @@ set_target_properties(ComboBoxTestBin PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS ComboBoxTestBin
+install(TARGETS appComboBoxTest
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 qt_generate_deploy_qml_app_script(
-    TARGET ComboBoxTestBin
+    TARGET appComboBoxTest
     OUTPUT_SCRIPT deploy_script
     NO_UNSUPPORTED_PLATFORM_ERROR
 )

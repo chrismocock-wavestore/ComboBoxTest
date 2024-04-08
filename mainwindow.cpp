@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(quick_view_, &QQuickWindow::sceneGraphError,
             this, &MainWindow::sceneGraphError);
 
-    quick_view_->setSource(QUrl(QStringLiteral("qrc:/ComboBoxTestQml/MainWindow.qml")));
+    quick_view_->setSource(QUrl(QStringLiteral("qrc:/ComboBoxTest/MainWindow.qml")));
 
     QWidget *container = QWidget::createWindowContainer(quick_view_);
     container->setMinimumSize(quick_view_->size());

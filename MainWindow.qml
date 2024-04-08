@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import ComboBoxTestQml
+import ComboBoxTest
 
 Item {
     Model {
